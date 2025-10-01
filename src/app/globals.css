@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Spirit Tech Color Palette */
+  --cosmic-purple: #7F39FB;
+  --electric-violet: #985EFF;
+  --astral-blue: #00D4FF;
+  --quantum-teal: #00FFD4;
+  --void-black: #0A0A0F;
+  --ether-white: #F0F0FF;
+  --chakra-pink: #FF00FF;
+  --aura-gold: #FFD700;
+
+  /* Semantic mappings */
+  --background: var(--void-black);
+  --foreground: var(--ether-white);
+
+  /* Consciousness levels */
+  --consciousness-alpha: 0.1;
+  --consciousness-beta: 0.3;
+  --consciousness-gamma: 0.6;
+  --consciousness-delta: 0.8;
+  --consciousness-theta: 1.0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Light mode (Ether dimension) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: var(--ether-white);
+    --foreground: var(--void-black);
+  }
+}
+
+/* Dark mode (Void dimension) - default */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--void-black);
+    --foreground: var(--ether-white);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Space Mono', monospace;
+  overflow-x: hidden;
+  cursor: none; /* Custom cursor will be implemented */
+  line-height: 1.6;
+}
+
+/* Custom scrollbar for consciousness navigation */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(127, 57, 251, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--cosmic-purple), var(--astral-blue));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--electric-violet), var(--quantum-teal));
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(0, 212, 255, 0.3);
+  color: var(--ether-white);
+}
+
+/* Focus states for accessibility */
+:focus-visible {
+  outline: 2px solid var(--quantum-teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Quantum field background base */
+.quantum-field-base {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Sacred geometry grid base */
+.sacred-grid-base {
+  background-image:
+    linear-gradient(var(--cosmic-purple) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cosmic-purple) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.1;
+}
+
+/* Consciousness states for interactive elements */
+.consciousness-dormant {
+  opacity: var(--consciousness-alpha);
+  transition: all 0.3s ease;
+}
+
+.consciousness-awakening {
+  opacity: var(--consciousness-beta);
+  transform: scale(1.02);
+}
+
+.consciousness-aware {
+  opacity: var(--consciousness-gamma);
+  transform: scale(1.05);
+}
+
+.consciousness-enlightened {
+  opacity: var(--consciousness-theta);
+  transform: scale(1.1);
+  filter: brightness(1.2) saturate(1.3);
+}
+
+/* Glitch effect utility */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch-text::before {
+  animation: glitch-1 0.5s infinite;
+  color: var(--chakra-pink);
+  z-index: -1;
+}
+
+.glitch-text::after {
+  animation: glitch-2 0.5s infinite;
+  color: var(--quantum-teal);
+  z-index: -2;
+}
+
+/* Energy aura effect */
+.energy-aura {
+  position: relative;
+}
+
+.energy-aura::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--cosmic-purple), var(--astral-blue), var(--quantum-teal), var(--chakra-pink));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.energy-aura:hover::before {
+  opacity: 0.6;
+  animation: color-spin 2s linear infinite;
+}
+
+/* Glassmorphism effect */
+.glass-morphism {
+  background: rgba(127, 57, 251, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(127, 57, 251, 0.2);
+}
+
+/* Quantum button base */
+.quantum-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.quantum-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--quantum-teal);
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.quantum-button:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* Custom Range Slider Styles - Pink/Magenta Theme */
+input[type="range"].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+input[type="range"].slider::-webkit-slider-track {
+  background: #334155;
+  border-radius: 6px;
+  height: 8px;
+  border: 1px solid #475569;
+}
+
+input[type="range"].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF1744, #ec4899);
+  cursor: pointer;
+  margin-top: -8px;
+  box-shadow: 0 0 15px rgba(255, 23, 68, 0.6), 0 0 30px rgba(236, 72, 153, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid #fff;
+}
+
+input[type="range"].slider::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 25px rgba(255, 23, 68, 0.9), 0 0 50px rgba(236, 72, 153, 0.5);
+}
+
+input[type="range"].slider::-moz-range-track {
+  background: #334155;
+  border-radius: 6px;
+  height: 8px;
+  border: 1px solid #475569;
+}
+
+input[type="range"].slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF1744, #ec4899);
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 0 15px rgba(255, 23, 68, 0.6), 0 0 30px rgba(236, 72, 153, 0.3);
+  transition: all 0.3s ease;
+}
+
+input[type="range"].slider::-moz-range-thumb:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 25px rgba(255, 23, 68, 0.9), 0 0 50px rgba(236, 72, 153, 0.5);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .quantum-field-base,
+  .sacred-grid-base {
+    animation: none !important;
+  }
+}

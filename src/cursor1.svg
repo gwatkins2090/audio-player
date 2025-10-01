@@ -1,0 +1,112 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Animated gradient that cycles through colors -->
+    <radialGradient id="gradient1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff00ff">
+        <animate attributeName="stop-color" 
+                 values="#ff00ff;#00ffff;#ffff00;#ff00ff" 
+                 dur="4s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#00ffff">
+        <animate attributeName="stop-color" 
+                 values="#00ffff;#ffff00;#ff00ff;#00ffff" 
+                 dur="4s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#ffff00">
+        <animate attributeName="stop-color" 
+                 values="#ffff00;#ff00ff;#00ffff;#ffff00" 
+                 dur="4s" 
+                 repeatCount="indefinite"/>
+      </stop>
+    </radialGradient>
+    
+    <!-- Second gradient for outer elements -->
+    <radialGradient id="gradient2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff6b6b">
+        <animate attributeName="stop-color" 
+                 values="#ff6b6b;#4ecdc4;#45b7d1;#ff6b6b" 
+                 dur="3s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#4ecdc4">
+        <animate attributeName="stop-color" 
+                 values="#4ecdc4;#45b7d1;#ff6b6b;#4ecdc4" 
+                 dur="3s" 
+                 repeatCount="indefinite"/>
+      </stop>
+    </radialGradient>
+  </defs>
+  
+  <!-- Outer rotating circle with petals -->
+  <g transform="translate(32, 32)">
+    <g>
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="0"
+                        to="360"
+                        dur="8s"
+                        repeatCount="indefinite"/>
+      <!-- Outer petals -->
+      <circle cx="0" cy="-20" r="6" fill="url(#gradient2)" opacity="0.8"/>
+      <circle cx="14.14" cy="-14.14" r="6" fill="url(#gradient2)" opacity="0.8"/>
+      <circle cx="20" cy="0" r="6" fill="url(#gradient2)" opacity="0.8"/>
+      <circle cx="14.14" cy="14.14" r="6" fill="url(#gradient2)" opacity="0.8"/>
+      <circle cx="0" cy="20" r="6" fill="url(#gradient2)" opacity="0.8"/>
+      <circle cx="-14.14" cy="14.14" r="6" fill="url(#gradient2)" opacity="0.8"/>
+      <circle cx="-20" cy="0" r="6" fill="url(#gradient2)" opacity="0.8"/>
+      <circle cx="-14.14" cy="-14.14" r="6" fill="url(#gradient2)" opacity="0.8"/>
+    </g>
+    
+    <!-- Middle rotating layer (opposite direction) -->
+    <g>
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="360"
+                        to="0"
+                        dur="6s"
+                        repeatCount="indefinite"/>
+      <!-- Middle petals -->
+      <ellipse cx="0" cy="-15" rx="4" ry="8" fill="url(#gradient1)" opacity="0.9"/>
+      <ellipse cx="15" cy="0" rx="8" ry="4" fill="url(#gradient1)" opacity="0.9"/>
+      <ellipse cx="0" cy="15" rx="4" ry="8" fill="url(#gradient1)" opacity="0.9"/>
+      <ellipse cx="-15" cy="0" rx="8" ry="4" fill="url(#gradient1)" opacity="0.9"/>
+      
+      <ellipse cx="10.6" cy="-10.6" rx="6" ry="4" fill="url(#gradient1)" opacity="0.9" transform="rotate(45 10.6 -10.6)"/>
+      <ellipse cx="10.6" cy="10.6" rx="6" ry="4" fill="url(#gradient1)" opacity="0.9" transform="rotate(-45 10.6 10.6)"/>
+      <ellipse cx="-10.6" cy="10.6" rx="6" ry="4" fill="url(#gradient1)" opacity="0.9" transform="rotate(45 -10.6 10.6)"/>
+      <ellipse cx="-10.6" cy="-10.6" rx="6" ry="4" fill="url(#gradient1)" opacity="0.9" transform="rotate(-45 -10.6 -10.6)"/>
+    </g>
+    
+    <!-- Inner decorative circles -->
+    <g>
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="0"
+                        to="360"
+                        dur="4s"
+                        repeatCount="indefinite"/>
+      <circle cx="0" cy="-10" r="3" fill="url(#gradient2)"/>
+      <circle cx="10" cy="0" r="3" fill="url(#gradient2)"/>
+      <circle cx="0" cy="10" r="3" fill="url(#gradient2)"/>
+      <circle cx="-10" cy="0" r="3" fill="url(#gradient2)"/>
+    </g>
+    
+    <!-- Center circle with pulsing animation -->
+    <circle cx="0" cy="0" r="8" fill="url(#gradient1)" opacity="0.95">
+      <animate attributeName="r"
+               values="8;10;8"
+               dur="2s"
+               repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Inner center dot -->
+    <circle cx="0" cy="0" r="3" fill="white" opacity="0.9">
+      <animate attributeName="opacity"
+               values="0.9;0.5;0.9"
+               dur="2s"
+               repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

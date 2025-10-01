@@ -1,0 +1,88 @@
+'use client';
+
+import React from 'react';
+
+interface DetailedMandalaProps {
+  size?: number;
+  className?: string;
+}
+
+export const DetailedMandala: React.FC<DetailedMandalaProps> = ({ size = 200, className = '' }) => {
+  return (
+    <svg 
+      id="detailed" 
+      width={size}
+      height={size}
+      viewBox="0 0 200 200" 
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <defs>
+        <g id="ornament">
+          <ellipse cx="0" cy="-65" rx="8" ry="12" fill="#EC4899" stroke="#DB2777" strokeWidth="1"/>
+          <circle cx="0" cy="-52" r="3" fill="#FBCFE8"/>
+        </g>
+        <g id="leaf">
+          <path d="M 0,-45 Q 6,-38 4,-32 Q 0,-35 -4,-32 Q -6,-38 0,-45" fill="#F9A8D4" stroke="#EC4899" strokeWidth="0.5"/>
+        </g>
+      </defs>
+      <circle cx="100" cy="100" r="95" fill="#FDF2F8" stroke="#EC4899" strokeWidth="2"/>
+      <circle cx="100" cy="100" r="85" fill="none" stroke="#F9A8D4" strokeWidth="1" strokeDasharray="3,3"/>
+      <g transform="translate(100,100)">
+        <use href="#ornament" transform="rotate(0)"/>
+        <use href="#ornament" transform="rotate(45)"/>
+        <use href="#ornament" transform="rotate(90)"/>
+        <use href="#ornament" transform="rotate(135)"/>
+        <use href="#ornament" transform="rotate(180)"/>
+        <use href="#ornament" transform="rotate(225)"/>
+        <use href="#ornament" transform="rotate(270)"/>
+        <use href="#ornament" transform="rotate(315)"/>
+      </g>
+      <g transform="translate(100,100)">
+        <use href="#leaf" transform="rotate(0)"/>
+        <use href="#leaf" transform="rotate(22.5)"/>
+        <use href="#leaf" transform="rotate(45)"/>
+        <use href="#leaf" transform="rotate(67.5)"/>
+        <use href="#leaf" transform="rotate(90)"/>
+        <use href="#leaf" transform="rotate(112.5)"/>
+        <use href="#leaf" transform="rotate(135)"/>
+        <use href="#leaf" transform="rotate(157.5)"/>
+        <use href="#leaf" transform="rotate(180)"/>
+        <use href="#leaf" transform="rotate(202.5)"/>
+        <use href="#leaf" transform="rotate(225)"/>
+        <use href="#leaf" transform="rotate(247.5)"/>
+        <use href="#leaf" transform="rotate(270)"/>
+        <use href="#leaf" transform="rotate(292.5)"/>
+        <use href="#leaf" transform="rotate(315)"/>
+        <use href="#leaf" transform="rotate(337.5)"/>
+      </g>
+      <g transform="translate(100,100)" fill="#EC4899">
+        <circle cx="0" cy="-72" r="2"/>
+        <circle cx="51" cy="-51" r="2"/>
+        <circle cx="72" cy="0" r="2"/>
+        <circle cx="51" cy="51" r="2"/>
+        <circle cx="0" cy="72" r="2"/>
+        <circle cx="-51" cy="51" r="2"/>
+        <circle cx="-72" cy="0" r="2"/>
+        <circle cx="-51" cy="-51" r="2"/>
+      </g>
+      <circle cx="100" cy="100" r="55" fill="none" stroke="#EC4899" strokeWidth="2"/>
+      <circle cx="100" cy="100" r="48" fill="none" stroke="#F9A8D4" strokeWidth="1"/>
+      <circle cx="100" cy="100" r="35" fill="#EC4899"/>
+      <circle cx="100" cy="100" r="28" fill="#FDF2F8"/>
+      <g transform="translate(100,100)" fill="#EC4899">
+        <circle cx="0" cy="-20" r="2.5"/>
+        <circle cx="14" cy="-14" r="2.5"/>
+        <circle cx="20" cy="0" r="2.5"/>
+        <circle cx="14" cy="14" r="2.5"/>
+        <circle cx="0" cy="20" r="2.5"/>
+        <circle cx="-14" cy="14" r="2.5"/>
+        <circle cx="-20" cy="0" r="2.5"/>
+        <circle cx="-14" cy="-14" r="2.5"/>
+      </g>
+      <circle cx="100" cy="100" r="12" fill="#EC4899"/>
+      <circle cx="100" cy="100" r="6" fill="#FBCFE8"/>
+    </svg>
+  );
+};
+

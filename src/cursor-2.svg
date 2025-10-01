@@ -1,0 +1,144 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Animated gradient with warm colors -->
+    <linearGradient id="warmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f093fb">
+        <animate attributeName="stop-color" 
+                 values="#f093fb;#f5576c;#ffa726;#f093fb" 
+                 dur="5s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#f5576c">
+        <animate attributeName="stop-color" 
+                 values="#f5576c;#ffa726;#f093fb;#f5576c" 
+                 dur="5s" 
+                 repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <!-- Cool gradient -->
+    <linearGradient id="coolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4facfe">
+        <animate attributeName="stop-color" 
+                 values="#4facfe;#00f2fe;#43e97b;#4facfe" 
+                 dur="4s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#00f2fe">
+        <animate attributeName="stop-color" 
+                 values="#00f2fe;#43e97b;#4facfe;#00f2fe" 
+                 dur="4s" 
+                 repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <!-- Star shape -->
+    <polygon id="star" points="0,-8 2,-2 8,-2 3,2 5,8 0,4 -5,8 -3,2 -8,-2 -2,-2" fill="url(#warmGrad)"/>
+  </defs>
+  
+  <g transform="translate(32, 32)">
+    <!-- Outer hexagonal pattern with scaling -->
+    <g opacity="0.7">
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="0"
+                        to="360"
+                        dur="10s"
+                        repeatCount="indefinite"/>
+      <g>
+        <animate attributeName="opacity"
+                 values="0.7;0.4;0.7"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+        <polygon points="0,-24 20.78,-12 20.78,12 0,24 -20.78,12 -20.78,-12" 
+                 fill="none" stroke="url(#coolGrad)" stroke-width="2"/>
+      </g>
+    </g>
+    
+    <!-- Rotating triangular elements -->
+    <g>
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="0"
+                        to="-360"
+                        dur="7s"
+                        repeatCount="indefinite"/>
+      <polygon points="0,-18 4,-10 -4,-10" fill="url(#warmGrad)" opacity="0.8"/>
+      <polygon points="15.59,-9 19.59,-1 11.59,-1" fill="url(#warmGrad)" opacity="0.8"/>
+      <polygon points="15.59,9 19.59,1 11.59,1" fill="url(#warmGrad)" opacity="0.8"/>
+      <polygon points="0,18 4,10 -4,10" fill="url(#warmGrad)" opacity="0.8"/>
+      <polygon points="-15.59,9 -11.59,1 -19.59,1" fill="url(#warmGrad)" opacity="0.8"/>
+      <polygon points="-15.59,-9 -11.59,-1 -19.59,-1" fill="url(#warmGrad)" opacity="0.8"/>
+    </g>
+    
+    <!-- Middle star layer -->
+    <g>
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="360"
+                        to="0"
+                        dur="5s"
+                        repeatCount="indefinite"/>
+      <use href="#star" transform="translate(0, -14)"/>
+      <use href="#star" transform="translate(12.12, -7)"/>
+      <use href="#star" transform="translate(12.12, 7)"/>
+      <use href="#star" transform="translate(0, 14)"/>
+      <use href="#star" transform="translate(-12.12, 7)"/>
+      <use href="#star" transform="translate(-12.12, -7)"/>
+    </g>
+    
+    <!-- Pulsing diamond shapes -->
+    <g>
+      <animateTransform attributeName="transform"
+                        type="scale"
+                        values="1;1.2;1"
+                        dur="2s"
+                        repeatCount="indefinite"/>
+      <polygon points="0,-10 6,0 0,10 -6,0" fill="url(#coolGrad)" opacity="0.9"/>
+    </g>
+    
+    <!-- Rotating inner squares -->
+    <g>
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="0"
+                        to="360"
+                        dur="3s"
+                        repeatCount="indefinite"/>
+      <rect x="-6" y="-6" width="12" height="12" fill="none" stroke="url(#warmGrad)" stroke-width="2" opacity="0.8">
+        <animate attributeName="stroke-width"
+                 values="2;3;2"
+                 dur="2s"
+                 repeatCount="indefinite"/>
+      </rect>
+    </g>
+    
+    <!-- Center circle with gradient -->
+    <circle cx="0" cy="0" r="5" fill="url(#coolGrad)">
+      <animate attributeName="r"
+               values="5;7;5"
+               dur="2.5s"
+               repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Tiny center dot -->
+    <circle cx="0" cy="0" r="2" fill="white">
+      <animate attributeName="r"
+               values="2;1;2"
+               dur="2.5s"
+               repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Orbiting dots -->
+    <g>
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="0"
+                        to="360"
+                        dur="4s"
+                        repeatCount="indefinite"/>
+      <circle cx="16" cy="0" r="2" fill="url(#warmGrad)" opacity="0.9"/>
+      <circle cx="-16" cy="0" r="2" fill="url(#coolGrad)" opacity="0.9"/>
+    </g>
+  </g>
+</svg>

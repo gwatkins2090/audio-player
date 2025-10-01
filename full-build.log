@@ -1,0 +1,9 @@
+
+> @your-org/component-library@1.0.0 build C:\Users\gwatkins\dev\apps\storybook\storybook-repo
+> next build --turbopack
+
+   ▲ Next.js 15.5.4 (Turbopack)
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+   Creating an optimized production build ...
