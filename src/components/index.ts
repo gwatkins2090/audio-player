@@ -22,6 +22,10 @@ export {
   ZenMandala
 } from './icons';
 
+// Radio Player Component
+export { default as RadioPlayer } from './RadioPlayer';
+export type { RadioPlayerProps } from './RadioPlayer';
+
 // Background Components
 export { AnimatedBackground } from './backgrounds';
 
