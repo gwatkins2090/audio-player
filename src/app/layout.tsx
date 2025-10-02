@@ -15,15 +15,15 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Component Library | Reusable React Components",
-  description: "A beautiful collection of reusable React components featuring hero banners, sacred geometry, spirit UI elements, and 3D quantum visualizations. Built with Next.js 15, TypeScript, and Framer Motion.",
-  keywords: ["React components", "Next.js", "TypeScript", "Framer Motion", "component library", "UI components", "sacred geometry", "3D components", "Three.js"],
-  authors: [{ name: "Component Library" }],
-  creator: "Component Library",
+  title: "Spirit Tech Radio - Live Streaming Audio Player",
+  description: "High-quality live radio streaming with real-time audio visualizer, 5-band equalizer, and modern UI. Built with Web Audio API, HTML5 Audio, and Canvas visualization.",
+  keywords: ["radio player", "audio streaming", "web audio API", "audio visualizer", "equalizer", "music player", "live radio", "HTML5 audio"],
+  authors: [{ name: "Spirit Tech Radio" }],
+  creator: "Spirit Tech Radio",
   openGraph: {
-    title: "Component Library | Reusable React Components",
-    description: "A beautiful collection of reusable React components for modern web applications.",
-    siteName: "Component Library",
+    title: "Spirit Tech Radio - Live Streaming Audio Player",
+    description: "High-quality live radio streaming with real-time visualizer and 5-band equalizer.",
+    siteName: "Spirit Tech Radio",
     locale: "en_US",
     type: "website",
   },

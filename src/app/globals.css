@@ -130,8 +130,22 @@ body {
   color: var(--foreground);
   font-family: 'Space Mono', monospace;
   overflow-x: hidden;
-  cursor: none; /* Custom cursor will be implemented */
+  cursor: default; /* Standard cursor for maximum compatibility */
   line-height: 1.6;
+}
+
+/* Force standard cursor behavior everywhere */
+*, *::before, *::after {
+  cursor: inherit !important;
+}
+
+button, a, input, select, textarea, [role="button"], [onclick] {
+  cursor: pointer !important;
+}
+
+/* Disable any custom cursor components */
+[data-custom-cursor] {
+  display: none !important;
 }
 
 /* Custom scrollbar for consciousness navigation */

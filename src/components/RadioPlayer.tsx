@@ -74,6 +74,7 @@ function useRadioPlayer(streamUrl: string, autoPlay: boolean = false) {
     if (!audio || audioContextRef.current) return;
 
     try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
       audioContextRef.current = audioContext;
 
@@ -112,6 +113,7 @@ function useRadioPlayer(streamUrl: string, autoPlay: boolean = false) {
     } catch (err) {
       console.error('Failed to initialize Web Audio API:', err);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eqBands]);
 
   useEffect(() => {
@@ -130,12 +132,14 @@ function useRadioPlayer(streamUrl: string, autoPlay: boolean = false) {
       audio.pause();
       audio.src = '';
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (autoPlay && state.hasInteracted) {
       play();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoPlay, state.hasInteracted]);
 
   const play = async () => {
@@ -240,13 +244,42 @@ function useRadioPlayer(streamUrl: string, autoPlay: boolean = false) {
   const handleLoadStart = () => setState(prev => ({ ...prev, isLoading: true }));
   const handleCanPlay = () => setState(prev => ({ ...prev, isLoading: false, error: null }));
   const handleError = () => {
+    const audio = audioRef.current;
+    let errorMessage = 'Stream error. Retrying...';
+
+    if (audio) {
+      const error = audio.error;
+      if (error) {
+        switch (error.code) {
+          case error.MEDIA_ERR_ABORTED:
+            errorMessage = 'Playback aborted';
+            break;
+          case error.MEDIA_ERR_NETWORK:
+            errorMessage = 'Network error. Check your connection.';
+            break;
+          case error.MEDIA_ERR_DECODE:
+            errorMessage = 'Audio decode error. File may be corrupted.';
+            break;
+          case error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+            errorMessage = 'Audio format not supported or file not found.';
+            break;
+          default:
+            errorMessage = error.message || 'Unknown error occurred';
+        }
+      }
+    }
+
     setState(prev => ({
       ...prev,
-      error: 'Stream error. Retrying...',
+      error: errorMessage,
       isLoading: false,
       isPlaying: false,
     }));
-    attemptReconnect();
+
+    // Only retry on network errors
+    if (audio?.error?.code === audio?.error?.MEDIA_ERR_NETWORK) {
+      attemptReconnect();
+    }
   };
   const handleEnded = () => setState(prev => ({ ...prev, isPlaying: false }));
   const handleWaiting = () => setState(prev => ({ ...prev, isLoading: true }));
@@ -517,7 +550,7 @@ export default function RadioPlayer({
       <audio
         ref={audioRef}
         src={streamUrl}
-        preload="none"
+        preload="metadata"
         crossOrigin="anonymous"
         {...eventHandlers}
       />
